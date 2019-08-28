@@ -1,0 +1,46 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.19.RELEASE")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'groovy'
+apply plugin: 'war'
+
+group = 'comments-search-service'
+version = '1.0.0'
+
+sourceCompatibility = '1.8'
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+	compile 'org.springframework.boot:spring-boot-starter-amqp:1.5.19.RELEASE'
+	compile 'org.springframework.boot:spring-boot-starter-data-jpa:1.5.19.RELEASE'
+	compile 'org.springframework.boot:spring-boot-starter-data-elasticsearch:1.5.19.RELEASE'
+	compile 'org.springframework.boot:spring-boot-starter-web:1.5.19.RELEASE'
+	compile 'org.springframework.data:spring-data-commons'
+//	compile 'com.sun.jna:jna'
+	runtimeOnly 'com.h2database:h2:1.4.197'
+	runtimeOnly 'mysql:mysql-connector-java:5.1.47'
+//	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testCompile('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
