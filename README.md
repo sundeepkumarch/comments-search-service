@@ -19,14 +19,21 @@ This Project loads the comments into Elastic and Searches. Using the following e
 
 ### Example:
 **Input**
+
 Comment1: _Daniel is good android developer_
+
 Comment2: _William is an average android developer_
+
 Comment3: _Jennifer is the best android designer_
+
 Comment4: _Andrew is good mobile developer but doesnt know android_
+
 Comment5: _Gary is the best ios designer_
 
 Search String: _good android developer_
+
 **Output**
+
 1. Daniel is **good android developer**
 2. Andrew is **good** mobile **developer** but doesnt know **android**
 3. William is an average **android developer**
